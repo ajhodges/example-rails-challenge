@@ -1,0 +1,24 @@
+<h1>Failed Charges</h1>
+<ul>
+	<% @failed.each do |charge| %>
+	<li class="red-bg"><%= charge.customer.first_name%> <%= charge.customer.last_name%>: <%= charge.amount%><%= charge.currency%> (<%= charge.updated_at.strftime("%m/%d/%Y") %>)</li>
+	<% end %>
+</ul>
+
+<h1>Disputed Charges</h1>
+<ul>
+	<% @disputed.each do |charge| %>
+	<li class="orange-bg"><%= charge.customer.first_name%> <%= charge.customer.last_name%>: <%= charge.amount%><%= charge.currency%> (<%= charge.updated_at.strftime("%m/%d/%Y") %>)</li>
+	<% end %>
+</ul>
+
+<h1>Successful Charges</h1>
+<ul>
+	<% @successful.each do |charge| %>
+	<li><%= charge.customer.first_name%> <%= charge.customer.last_name%>: <%= charge.amount%><%= charge.currency%> (<%= charge.updated_at.strftime("%m/%d/%Y") %>)</li>
+	<% end %>
+</ul>
+
+<br />
+
+<%= link_to 'New Charge', new_charge_path %>
